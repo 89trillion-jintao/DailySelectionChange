@@ -33,11 +33,11 @@ public class CreateCards : MonoBehaviour
     private void CreateCardFromJson()
     {
         //从解析json的脚本中获取数据
-        List<JSONNode> list = JsonData.JsonToData();
-        foreach (JSONNode value in list)
+        List<JsonData.CardData> list = JsonData.JsonToData(); 
+        foreach (JsonData.CardData value in list)
         {
             ChangeChildInCard temp;
-            switch (int.Parse(value["type"]))
+            switch (value.type)
             {
                 case 1:
                     temp = CreateItemForSV("prefabs/CoinCardPrefab");
